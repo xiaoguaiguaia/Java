@@ -1,0 +1,15 @@
+//外层循坏控制行数
+//内层循环控制列数
+public class Dayin {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		for(int i = 1;i <=5;i++) {
+			for(int j = 0;j <= 5-i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+}
