@@ -1,0 +1,19 @@
+public class Exer1Test {
+	public static void main(String[] args) {
+		Method p1 = new Method();
+		System.out.println(p1.print(10,8));
+	}
+
+}
+class Method{
+	public int print(int m,int n) {
+	for(int i = 0;i < m;i++) {
+		for(int j = 0;j < n;j++) {
+			System.out.print("* ");
+		}
+		System.out.println();
+	}
+	return m * n;
+	}
+
+}
