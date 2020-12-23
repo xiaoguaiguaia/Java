@@ -1,0 +1,131 @@
+public class MethodTeast {
+	public static void main(String[] args) {
+
+		Method util = new Method();
+		int[] arr = new int[] { 23, 34, 25, -21, 53, 75, 54, -64, 0, 53 };
+
+		// 遍历数组
+		util.print(arr);
+
+		// 最大值
+		int max = util.getMax(arr);
+		System.out.println("max:" + max);
+
+		// 最小值
+		int min = util.getMin(arr);
+		System.out.println("min:" + min);
+
+		// 平均值
+		int avg = util.getAvg(arr);
+		System.out.println("avg:" + avg);
+
+		// 总和
+		int sum = util.getSum(arr);
+		System.out.println("sum:" + sum);
+
+		// 数组反转
+		util.reverse(arr);
+		util.print(arr);
+
+		// 数组排序
+		util.sort(arr);
+		util.print(arr);
+
+		// 数组复制
+//		int[] arr1 = new int[arr.length];
+//		arr1 = util.copy(arr);
+		int[] arr1 = util.copy(arr);
+		util.print(arr1);
+		
+		//查找指定元素
+		int index = util.getIndex(arr, 25);
+		System.out.println("找到了，索引地址为" + index);
+
+	}
+
+}
+
+
+/*
+ * 自定义数组的工具类
+ */
+public class Method {
+	//遍历数组
+	public void print(int[] arr) {
+		for(int i = 0;i < arr.length;i++) {
+			System.out.print(arr[i] + "\t");
+		}
+		System.out.println();
+	}
+	//求最大值
+	public int getMax(int[] arr) {
+		int max = arr[0];
+		for(int i = 0;i < arr.length;i++) {
+			if(max < arr[i])
+				max = arr[i];
+		}
+		return max;
+	}
+	//求最小值
+	public int getMin(int[] arr) {
+		int min = arr[0];
+		for(int i = 0;i < arr.length;i++) {
+			if(min > arr[i]) {
+				min = arr[i];
+			}
+		}
+		return min;
+	}
+	//求平均值
+	public int getAvg(int[] arr) {
+		int avg = getSum(arr) / arr.length;
+		return avg;
+	}
+	//求总和
+	public int getSum(int[] arr) {
+		int sum = 0;
+		for(int i = 0;i < arr.length;i++) {
+			sum += arr[i];
+		}
+		
+		return sum;
+	}
+	//数组的反转
+	public void reverse(int[] arr) {
+		for(int i = 0;i < arr.length / 2;i++) {
+			int temp = arr[i];
+			arr[i] = arr[arr.length - 1 - i];
+			arr[arr.length - 1 - i] = temp;
+		}
+	}
+	//数组的复制
+	public int[] copy(int[] arr) {
+		int[] arr1 = new int[arr.length];
+		for(int i = 0;i < arr.length;i++) {
+			arr1[i] = arr[i];
+		}
+		return arr1;
+	}
+	//数组的排序
+	public void sort(int[] arr) {
+		for(int i = 0;i < arr.length;i++) {
+			for(int j = 0;j < arr.length - 1;j++) {
+				if(arr[j] > arr[j + 1]) {
+					int temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+			}
+		}
+	}
+	//数组中查找指定元素
+	public int getIndex(int[] arr,int s) {
+		for(int i = 0;i < arr.length;i++) {
+			if(arr[i] == s) {
+				return i;
+			}
+		}
+		return -1;//返回一个负数，表示没找到
+	}
+	
+}
